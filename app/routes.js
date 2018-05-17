@@ -23,12 +23,12 @@ router.get('/', function (req, res) {
 
   router.post('/juggling-equipment-answer', function (req, res) {
     // make a variable and give it the from 'juggling-balls'
-    var jugglingEquipment = req.session.data['check-list']
+    var jugglingEquipment = req.session.data['equipment-type']
 
     // check whether the variable matched a condition
     if (jugglingEquipment == "Regulation balls") {
       // send user to the next pages
-      res.redirect('/check-answers')
+      res.redirect('/check-your-answers')
     } else {
       // send user to ineligible page
       res.redirect('/danger')
