@@ -7,7 +7,7 @@ router.get('/', function (req, res) {
 })
 
 // add your routes here
-router.post('/juggling-balls-answer', function (req, res) {
+ router.post('/juggling-balls-answer', function (req, res) {
   // make a variable and give it the from 'juggling-balls'
   var jugglingBalls = req.session.data['juggling-balls']
 
@@ -18,7 +18,21 @@ router.post('/juggling-balls-answer', function (req, res) {
   } else {
     // send user to ineligible page
     res.redirect('/ineligible')
-  }
+ }
+})
+
+  router.post('/juggling-equipment-answer', function (req, res) {
+    // make a variable and give it the from 'juggling-balls'
+    var jugglingEquipment = req.session.data['check-list']
+
+    // check whether the variable matched a condition
+    if (jugglingEquipment == "Regulation balls") {
+      // send user to the next pages
+      res.redirect('/check-answers')
+    } else {
+      // send user to ineligible page
+      res.redirect('/danger')
+    }
 })
 
 module.exports = router
